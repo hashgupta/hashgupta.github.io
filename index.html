@@ -6,7 +6,8 @@
         <link rel="stylesheet" href ="style.css">
     </head>
     <script>
-      const response = await fetch('https://api.github.com/repos/hashgupta/hashgupta.github.io/articles/');
+      (async () => {
+        const response = await fetch('https://api.github.com/repos/hashgupta/hashgupta.github.io/contents/articles');
         const data = await response.json();
         let htmlString = '<ul>';
         
@@ -16,6 +17,7 @@
 
         htmlString += '</ul>';
         document.getElementsByTagName('body')[1].innerHTML = htmlString;
+      })()
     </script>
     <body>
         <div class="header">
